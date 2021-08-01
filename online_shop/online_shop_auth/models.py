@@ -3,7 +3,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.db import models
 
 
-class PythonsUserManager(BaseUserManager):
+class OnlineShopUserManager(BaseUserManager):
     def _create_user(self, email, password, **extra_fields):
         if not email:
             raise ValueError('The given email must be set')
@@ -30,7 +30,7 @@ class PythonsUserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
 
-class PythonsUser(AbstractBaseUser, PermissionsMixin):
+class OnlineShopUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
         unique=True,
     )
@@ -41,4 +41,4 @@ class PythonsUser(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
 
-    objects = PythonsUserManager()
+    objects = OnlineShopUserManager()

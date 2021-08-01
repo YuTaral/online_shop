@@ -59,7 +59,7 @@ WSGI_APPLICATION = 'online_shop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'online_shop_db',
+        'NAME': 'online_shopdb',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': '127.0.0.1',
@@ -68,18 +68,18 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+#     },
+#     {
+#         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+#     },
 ]
 
 
@@ -100,7 +100,7 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
 
-AUTH_USER_MODEL = 'online_shop_auth.PythonsUser'
+AUTH_USER_MODEL = 'online_shop_auth.OnlineShopUser'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
