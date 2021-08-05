@@ -13,5 +13,5 @@ class ProfileForm(BootstrapFormMixin, forms.ModelForm):
 class ProfileDetailsForm(BootstrapFormMixin, forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = ('is_complete',)
+        exclude = ('is_complete', 'user',)
 

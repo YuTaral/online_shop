@@ -1,7 +1,7 @@
 from django.urls import path
 
-from online_shop.online_shop_web.views import index
+from online_shop.online_shop_web.views import landing_page
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', landing_page, name='index'),
 ]
