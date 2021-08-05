@@ -1,11 +1,13 @@
-from django.contrib.auth import logout
+from django.contrib.auth import logout, get_user_model
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
 
-from online_shop.online_shop_auth.admin import UserModel
 from online_shop.online_shop_auth.forms import SignUpForm, SignInForm
+
+
+UserModel = get_user_model()
 
 
 class SignUpView(CreateView):
