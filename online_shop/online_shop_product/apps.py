@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class ShopWebConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'online_shop.online_shop_web'
+    name = 'online_shop.online_shop_product'

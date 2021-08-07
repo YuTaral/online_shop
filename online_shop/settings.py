@@ -21,7 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'online_shop.online_shop_auth',
-    'online_shop.online_shop_web',
+    'online_shop.online_shop_product',
     'online_shop.online_shop_profiles',
 ]
 
