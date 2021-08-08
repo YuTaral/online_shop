@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=15)),
                 ('state', models.CharField(choices=[('used', 'Used'), ('brand new', 'Brand new')], max_length=10)),
                 ('year', models.PositiveIntegerField()),
-                ('image', models.FileField(upload_to='items')),
+                ('image', models.FileField(upload_to='products')),
                 ('description', models.TextField(max_length=250)),
                 ('location', models.CharField(max_length=30)),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),

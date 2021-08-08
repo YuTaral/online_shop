@@ -6,12 +6,12 @@ UserModel = get_user_model()
 
 
 class Product(models.Model):
-    TYPE_CHOICE_FASHION = 'fashion'
-    TYPE_CHOICE_COMPUTER = 'computer'
-    TYPE_CHOICE_PHONE = 'phone'
-    TYPE_CHOICE_CAR = 'car'
-    TYPE_CHOICE_ACCOMMODATION = 'accommodation'
-    TYPE_CHOICE_ACCESSORY = 'accessory'
+    TYPE_CHOICE_FASHION = 'Fashion'
+    TYPE_CHOICE_COMPUTER = 'Computer'
+    TYPE_CHOICE_PHONE = 'Phone'
+    TYPE_CHOICE_CAR = 'Car'
+    TYPE_CHOICE_ACCOMMODATION = 'Accommodation'
+    TYPE_CHOICE_ACCESSORY = 'Accessory'
 
     TYPE_CHOICES = (
         (TYPE_CHOICE_FASHION, 'Fashion'),
@@ -22,8 +22,8 @@ class Product(models.Model):
         (TYPE_CHOICE_ACCESSORY, 'Accessory'),
     )
 
-    STATE_CHOICE_USED = 'used'
-    STATE_CHOICE_BRAND_NEW = 'brand new'
+    STATE_CHOICE_USED = 'Used'
+    STATE_CHOICE_BRAND_NEW = 'Brand new'
 
     STATE_CHOICES = (
         (STATE_CHOICE_USED, 'Used'),
@@ -49,8 +49,8 @@ class Product(models.Model):
 
     year = models.PositiveIntegerField()
 
-    image = models.FileField(
-        upload_to='items',
+    image = models.ImageField(
+        upload_to='products',
     )
 
     description = models.TextField(
