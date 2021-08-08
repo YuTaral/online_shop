@@ -107,5 +107,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = 'online_shop_auth.OnlineShopUser'
 
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

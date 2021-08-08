@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
 
 from core.mixins import LoginRequiredMixin
-from online_shop.online_shop_product.forms import ProductEditForm
+from online_shop.online_shop_product.forms import ProductEditForm, ProductForm
 from online_shop.online_shop_product.models import Product
 
 
@@ -69,4 +69,32 @@ def own_products_list(request):
     }
 
     return render(request, 'products/own_products_list.html', context)
+
+
+def search_products(request):
+    matched_products = []
+
+    if request.method == 'GET':
+        form = ProductForm()
+
+    else:
+        type = request.POST.get('category')
+        state = request.POST.get('state')
+        starting_price = request.POST.get('starting_price')
+        final_price = request.POST.get('final_price')
+
+        products = Product.objects.all()
+
+        for p in products:
+            if p.type == type and p.state == state and (float(starting_price) <= p.price <= float(final_price)):
+                matched_products.append(p)
+
+        context = {
+            'products': matched_products,
+        }
+
+        return render(request, 'products/products_found.html', context)
+
+    return render(request, 'products/product_search.html')
+
 

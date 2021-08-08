@@ -1,7 +1,7 @@
 from django.urls import path
 
 from online_shop.online_shop_product.views import ProductDetailsView, ProductDeleteView, ProductEditView, \
-    own_products_list
+    own_products_list, search_products
 
 from online_shop.online_shop_product.views import landing_page, ProductCreateView, ProductListView
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('product/delete/<int:pk>', ProductDeleteView.as_view(), name='product delete'),
     path('product/edit/<int:pk>', ProductEditView.as_view(), name='product edit'),
     path('own/products/', own_products_list, name='own products'),
+    path('products/search/', search_products, name='search products'),
 ]
