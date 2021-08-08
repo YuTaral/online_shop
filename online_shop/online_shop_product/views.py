@@ -1,4 +1,3 @@
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
@@ -12,7 +11,7 @@ def landing_page(request):
     return render(request, 'landing_page.html')
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     template_name = 'products/product_create.html'
     model = Product
     fields = ('type', 'state', 'price', 'name', 'year', 'image', 'description', 'location',)
@@ -50,10 +49,24 @@ class ProductEditView(LoginRequiredMixin, UpdateView):
     template_name = 'products/product_edit.html'
     form_class = ProductEditForm
     model = Product
-    success_url = reverse_lazy('products list')
+    success_url = reverse_lazy('own products')
 
 
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'products/product_delete.html'
     model = Product
-    success_url = reverse_lazy('products list')
+    success_url = reverse_lazy('own products')
+
+
+def own_products_list(request):
+    products = Product.objects.all()
+    own_products = []
+    for p in products:
+        if p.user_id == request.user.id:
+            own_products.append(p)
+    context = {
+        'products': own_products,
+    }
+
+    return render(request, 'products/own_products_list.html', context)
+
