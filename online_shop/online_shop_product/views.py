@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView, DeleteView, UpdateView
@@ -93,8 +94,35 @@ def search_products(request):
             'products': matched_products,
         }
 
-        return render(request, 'products/products_found.html', context)
+        # return render(request, 'products/products_found.html', context)
 
     return render(request, 'products/product_search.html')
 
 
+@login_required
+def order_product(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        phone_number = request.POST.get('phone_num')
+        street = request.POST.get('street')
+        st_number = request.POST.get('st_number')
+        city = request.POST.get('city')
+        country = request.POST.get('country')
+        code = request.POST.get('postal_code')
+
+        context = {
+            'first_name': first_name,
+            'last_name': last_name,
+            'phone_number': phone_number,
+            'street': street,
+            'st_number': st_number,
+            'city': city,
+            'country': country,
+            'code': code,
+        }
+
+    else:
+        return render(request, 'products/product_order.html')
+
+    return render(request, 'products/product_ordered_message.html', context)

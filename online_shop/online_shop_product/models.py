@@ -10,7 +10,6 @@ class Product(models.Model):
     TYPE_CHOICE_COMPUTER = 'Computer'
     TYPE_CHOICE_PHONE = 'Phone'
     TYPE_CHOICE_CAR = 'Car'
-    TYPE_CHOICE_ACCOMMODATION = 'Accommodation'
     TYPE_CHOICE_ACCESSORY = 'Accessory'
 
     TYPE_CHOICES = (
@@ -18,7 +17,6 @@ class Product(models.Model):
         (TYPE_CHOICE_COMPUTER, 'Computer'),
         (TYPE_CHOICE_PHONE, 'Phone'),
         (TYPE_CHOICE_CAR, 'Car'),
-        (TYPE_CHOICE_ACCOMMODATION, 'Accommodation'),
         (TYPE_CHOICE_ACCESSORY, 'Accessory'),
     )
 
