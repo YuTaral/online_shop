@@ -94,7 +94,7 @@ def search_products(request):
             'products': matched_products,
         }
 
-        # return render(request, 'products/products_found.html', context)
+        return render(request, 'products/products_found.html', context)
 
     return render(request, 'products/product_search.html')
 
