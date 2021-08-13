@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
@@ -6,7 +7,7 @@ from online_shop.online_shop_profiles.models import Profile
 
 
 @login_required
-def profile_details(request,):
+def profile_details(request, ):
     profile = Profile.objects.get(pk=request.user.id)
     if request.method == 'POST':
         form = ProfileDetailsForm(request.POST, request.FILES, instance=profile)

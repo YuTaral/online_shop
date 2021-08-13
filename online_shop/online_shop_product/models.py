@@ -59,7 +59,12 @@ class Product(models.Model):
         max_length=30,
     )
 
+    quantity = models.PositiveIntegerField()
+
     user = models.ForeignKey(
         UserModel,
         on_delete=models.CASCADE,
     )
+
+    def __str__(self):
+        return self.name

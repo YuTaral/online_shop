@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'online_shop.online_shop_auth',
     'online_shop.online_shop_product',
     'online_shop.online_shop_profiles',
+    'online_shop.online_shop_orders',
 ]
 
 MIDDLEWARE = [

@@ -26,7 +26,9 @@ class Profile(models.Model):
         on_delete=models.CASCADE,
         primary_key=True,
     )
+
     is_complete = models.BooleanField(
         default=False,
     )
+
 
