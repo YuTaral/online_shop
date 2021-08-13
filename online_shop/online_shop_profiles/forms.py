@@ -1,6 +1,6 @@
 from django import forms
 
-from core.forms import BootstrapFormMixin
+from core.mixins import BootstrapFormMixin
 from online_shop.online_shop_profiles.models import Profile
 
 

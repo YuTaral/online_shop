@@ -1,6 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
+from core.validators import length_validator, positive_validator
 
 UserModel = get_user_model()
 
@@ -35,10 +36,13 @@ class Product(models.Model):
 
     name = models.CharField(
         max_length=15,
+        validators=[length_validator],
 
     )
 
-    price = models.FloatField()
+    price = models.FloatField(
+        validators=[positive_validator],
+    )
 
     state = models.CharField(
         max_length=10,
