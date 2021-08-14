@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h1 class="text-center">Publish ad for sale</h1>
+
+    <form class="col-lg-6 offset-lg-3" method="post"
+          enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.errors }}
+
+        <div class="form-group">
+            <label for="name">Select product type: </label>
+            {{ form.type }}
+        </div>
+        <div class="form-group">
+            <label for="name">Select product state: </label>
+            {{ form.state }}
+        </div>
+        <div class="form-group">
+            <label for="name">Enter price in EUR: </label>
+            {{ form.price }}
+        </div>
+        <div class="form-group">
+            <label for="name">Enter ad's name: </label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="name">Enter year: </label>
+            {{ form.year }}
+        </div>
+        <div class="form-group">
+            <label for="name">Select image to upload: </label>
+            {{ form.image }}
+        </div>
+        <div class="form-group">
+            <label for="name">Enter your location: </label>
+            {{ form.location }}
+        </div>
+
+        <div class="form-group">
+            <label for="name">Enter product's quantity: </label>
+            {{ form.quantity }}
+        </div>
+
+        {{ form.description }}
+
+        <button class="btn btn-success">Publish</button>
+    </form>
+
+    {% include 'footers/not_fixed_bottom_footer.html'%}
+
+{% endblock %}
+

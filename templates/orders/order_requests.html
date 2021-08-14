@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block content %}
+{% if my_order_requests %}
+    <h1 class="text-center">You have the following order requests</h1>
+    {% for order in my_order_requests %}
+    <div class="row"></div>
+        <h4>At {{ order.time }} you received request from {{ order.orderer_first_name }} {{ order.orderer_last_name }} to send {{ order.product }} to the following address:</h4>
+        <ul>
+        <li>{{ order.address_street }}</li>
+        <li>{{ order.address_city }}</li>
+        <li>{{ order.address_country }}</li>
+        <li>{{ order.postal_code }}</li>
+        _______________________________________________________________________________________________________________________________________________
+        </ul>
+    {% endfor %}
+    {% include 'footers/not_fixed_bottom_footer.html' %}
+    {% else %}
+        <h1>You dont have order requests</h1>
+    {% endif %}
+{% endblock %}

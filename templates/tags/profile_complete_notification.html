@@ -1,0 +1,5 @@
+{% if not is_complete %}
+    <div class="alert alert-warning">
+        Your profile is not completed. To complete it <a href="{% url 'profile details' %}">Click here</a>!
+    </div>
+{% endif %}

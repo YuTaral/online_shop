@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% if products %}
+        <h1 class='text-center'>Products found</h1>
+        <div class="row">
+            {% for product in products %}
+                <div class="col-lg-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.price }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }} - {{ product.price }} EUR</h5>
+                            <a href="{% url 'product details' product.id %}" class="btn btn-primary">See details</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+            {% include 'footers/not_fixed_bottom_footer.html' %}
+        </div>
+
+    {% else %}
+        <div class="container">
+            <div class="centered">
+                <div class="alert alert-warning">We are sorry, we did not found products with the given criteria</div>
+                <a href="{% url 'search products' %}">Click here to search again</a>
+
+            </div>
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/sorry-item-not-found-3328225-2809510.png">
+
+        </div>
+
+    {% endif %}
+
+{% endblock %}

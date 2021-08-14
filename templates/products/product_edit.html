@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1 class="text-center">Edit product</h1>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form method="post" class="furniture-form" action="{% url 'product edit' product.id %}"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                {{ form.errors }}
+                <button class="btn btn-primary mt-2" type="submit">Confirm Edit</button>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+
+    </div>
+    {% include 'footers/not_fixed_bottom_footer.html' %}
+{% endblock %}

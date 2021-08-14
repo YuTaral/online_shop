@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <h1 class="text-center">{{ product.name }}</h1>
+    <div class="d-inline p-2 w-50">
+        <img src="{{ product.image.url }}" class="w-50 rounded mx-auto d-block">
+    </div>
+    <div class="container">
+        <div>
+            <h2>Type: {{ product.type }}</h2>
+            <h2>State: {{ product.state }}</h2>
+            <h2>Price: {{ product.price }} EUR</h2>
+            <h2>Year: {{ product.year }}</h2>
+            <h2>Location: {{ product.location }}</h2>
+            <h2>Quantity: {{ product.quantity }}</h2>
+            <h2>Description: {{ product.description }}</h2>
+        </div>
+        {% if is_owner %}
+            <a href="{% url 'product delete' product.id %}" class="btn btn-danger">Delete</a>
+            <a href="{% url 'product edit' product.id %}" class="btn btn-success">Edit</a>
+        {% else %}
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'order product' product.id %}" class="btn btn-primary">Order product</a>
+
+            {% else %}
+                <div class="alert alert-warning">
+                    Sign up or sign in to order the product
+                </div>
+                </div>
+
+            {% endif %}
+
+        {% endif %}
+
+    {% include 'footers/not_fixed_bottom_footer.html' %}
+{% endblock %}

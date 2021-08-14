@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h1 class="text-center">Select product to search</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="row">
+            <div class="col lg-0">
+                <p>Select product category:</p>
+                <input required type="radio" id="Car" name="category" value="Car">
+                <label for="Car">Car</label><br>
+
+                <input required type="radio" id="Accommodation" name="category" value="Accommodation">
+                <label for="Accommodation">Accommodation</label><br>
+
+                <input required type="radio" id="Phone" name="category" value="Phone">
+                <label for="Phone">Phone</label><br>
+
+                <input required type="radio" id="Computer" name="category" value="Computer">
+                <label for="Computer">Computer</label><br>
+
+                <input required type="radio" id="Fashion" name="category" value="Fashion">
+                <label for="Fashion">Fashion</label><br>
+
+                <input required type="radio" id="Accessory" name="category" value="Accessory">
+                <label for="Accessory">Accessory</label><br>
+            </div>
+
+            <div class="col lg-1">
+                <p>Select product's state:</p>
+                <input required type="radio" id="Used" name="state" value="Used">
+                <label for="Used">Used</label><br>
+
+                <input required type="radio" id="Brand new" name="state" value="Brand new">
+                <label for="Brand new">Brand new</label><br>
+
+
+            </div>
+
+            <div class="col lg-2">
+                <p>Select price in EUR:</p>
+                <label>
+                    <div>From:</div>
+                    <input required type="text" name="starting_price">
+                    <div>To:</div>
+                    <input required type="text" name="final_price">
+                </label>
+            </div>
+            <div>
+                <button class="btn btn-primary" action="{% url 'search products' %}">Search products</button>
+            </div>
+
+        </div>
+
+
+    </form>
+    {% if request.user.is_authenticated %}
+        {% include 'footers/not_fixed_bottom_footer.html' %}
+    {% endif %}
+
+{% endblock %}

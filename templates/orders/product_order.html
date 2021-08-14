@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h1 class="text-center">Enter information for your order</h1>
+    <form method="post" class="container">
+        {% csrf_token %}
+        {{ form.errors }}
+        <labe>First name:</labe>
+            {{ form.orderer_first_name }}
+        <labe>Last name:</labe>
+            {{ form.orderer_last_name }}
+        <label>Street</label>
+        {{ form.address_street }}
+        <label>City</label>
+        {{ form.address_city }}
+        <label>Country</label>
+        {{ form.address_country }}
+        <label>Post code:</label>
+        {{ form.postal_code }}
+
+        <button class="btn btn-primary">Order</button>
+        {% include 'footers/not_fixed_bottom_footer.html' %}
+    </form>
+
+{% endblock %}
