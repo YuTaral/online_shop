@@ -8,7 +8,9 @@ To implement the functionality the following models are used:
 - model OnlineShopUserManager
 - model Product
 - model Order
+
 The project is using PostgreSQL as database.
+
 The project has the following requirements:
 - Python 3.8
 - Django 3.2.5
